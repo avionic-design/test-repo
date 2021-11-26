@@ -13,4 +13,4 @@ jobs:
           body: |
             ### Review
             [Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
-          label: review
+          labels: review
