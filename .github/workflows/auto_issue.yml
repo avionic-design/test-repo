@@ -1,0 +1,15 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  create-review-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: create review issue
+        uses: dacbd/create-issue-action@main
+        with:
+          token: ${{ github.token }}
+          title: Review ${{ github.sha }})
+          body: |
+            ### Context
+            [Commit](https://github.com/${{ github.repository }}/tree/${{ github.sha }})
