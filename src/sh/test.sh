@@ -1,3 +1,3 @@
-#!/bun/bash
+#!/bin/bash
 
 echo "Hello"
