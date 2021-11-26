@@ -16,8 +16,6 @@ jobs:
     - name: Assign new review issues project 1
       uses: srggrs/assign-one-project-github-action@1.2.1
       if: |
-        contains(github.event.issue.labels.*.name, 'review') &&
-        (github.event.action == 'opened' ||
-        github.event.action == 'created')
+        contains(github.event.issue.labels.*.name, 'review')
       with:
         project: 'https://github.com/${{ github.repository }}/projects/1'
