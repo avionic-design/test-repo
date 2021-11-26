@@ -11,5 +11,5 @@ jobs:
           token: ${{ github.token }}
           title: Review ${{ github.sha }})
           body: |
-            ### Context
-            [Commit](https://github.com/${{ github.repository }}/tree/${{ github.sha }})
+            ### Review
+            [Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
