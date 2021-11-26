@@ -1,0 +1,23 @@
+name: Auto Assign to Project(s)
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Assign issues to project
+    steps:
+    - name: Assign new review issues project 1
+      uses: srggrs/assign-one-project-github-action@1.2.1
+      if: |
+        contains(github.event.issue.labels.*.name, 'review') &&
+        (github.event.action == 'opened' ||
+        github.event.action == 'created')
+      with:
+        project: 'https://github.com/${{ github.repository }}/projects/1'
